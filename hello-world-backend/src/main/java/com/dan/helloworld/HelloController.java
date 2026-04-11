@@ -17,8 +17,8 @@ public class HelloController {
     }
 
     @GetMapping("/api/time")
-    public String time() {
-        return LocalDateTime.now().toString();
+    public TimeResponse time() {
+        return new TimeResponse(LocalDateTime.now());
     }
 
     @GetMapping("/api/goodbye")
