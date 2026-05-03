@@ -11,29 +11,35 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
+    private final HelloService service;
+
+    public HelloController(HelloService service) {
+        this.service = service;
+    }
+
     @GetMapping("/api/hello")
     public String hello() {
-        return "Hello World!";
+        return service.getHello();
     }
 
     @GetMapping("/api/time")
     public TimeResponse time() {
-        return new TimeResponse(LocalDateTime.now());
+        return service.getCurrentTime();
     }
 
     @GetMapping("/api/goodbye")
     public String goodbye() {
-        return "Goodbye!";
+        return service.getGoodbye();
     }
 
     @GetMapping("/api/hello/{name}")
     public String helloName(@PathVariable String name) {
-        return "Hello, " + name + "!";
+        return service.getHelloName(name);
     }
 
     @GetMapping("/api/add")
     public int add(@RequestParam int a, @RequestParam int b) {
-        return a + b;
+        return service.add(a, b);
     }
 
     @GetMapping("/api/user")
