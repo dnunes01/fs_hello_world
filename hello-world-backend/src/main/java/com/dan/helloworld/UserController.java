@@ -1,5 +1,6 @@
 package com.dan.helloworld;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -26,7 +27,9 @@ public class UserController {
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user) {
         User saved = userService.saveUser(user);
-        return ResponseEntity.ok(saved);
+        return ResponseEntity
+            .created(URI.create("/api/users/" + saved.getId()))
+            .body(saved);
     }
 
     // Get a user by ID
