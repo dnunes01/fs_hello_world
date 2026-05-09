@@ -7,6 +7,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -16,15 +18,28 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "First name is required")
     private String firstName;
+
+    @NotBlank(message = "Last name is required")
     private String lastName;
+
+    @Size(min = 2, max = 20, message = "Preferred name must be between 2 and 20 characters")
     private String preferredName;
+
+    @NotBlank(message = "Role is required")
     private String role;
+
     private boolean active;
+
+
     private LocalDateTime createdAt;
 
     // Required by JPA — must be empty
-    public User() { }
+    public User() {
+        this.active = true;
+        this.createdAt = LocalDateTime.now();
+    }
 
     // Optional convenience constructor
     public User(String firstName, String lastName, String preferredName, String role) {
@@ -32,8 +47,7 @@ public class User {
         this.lastName = lastName;
         this.preferredName = preferredName;
         this.role = role;
-        this.active = true;
-        this.createdAt = LocalDateTime.now();
+        
     }
 
     // Getters and setters for all fields
