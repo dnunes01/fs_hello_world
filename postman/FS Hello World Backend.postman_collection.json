@@ -1,0 +1,159 @@
+{
+  "info": {
+    "_postman_id": "f547bdcd-79e1-4486-b63c-d327393d31e7",
+    "name": "FS Hello World Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "29724090"
+  },
+  "item": [
+    {
+      "name": "GET /api/user/{id}",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localHost:8080/api/users/1",
+          "protocol": "http",
+          "host": [
+            "localHost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "1"
+          ]
+        },
+        "description": "Get user with Id 1"
+      },
+      "response": []
+    },
+    {
+      "name": "GET all users",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localHost:8080/api/users",
+          "protocol": "http",
+          "host": [
+            "localHost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST /api/user",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Daniel\",\r\n    \"lastName\": \"Nunes\",\r\n    \"preferredName\": \"Dan\",\r\n    \"role\": \"Admin\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localHost:8080/api/users",
+          "protocol": "http",
+          "host": [
+            "localHost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users"
+          ]
+        },
+        "description": "# Create User\n\n- adds user to the users table."
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE /api/users/{id}",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Daniel\",\r\n    \"lastName\": \"Nunes\",\r\n    \"preferredName\": \"Dan\",\r\n    \"role\": \"Admin\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localHost:8080/api/users/1",
+          "protocol": "http",
+          "host": [
+            "localHost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT /api/users/{id}",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Daniel\",\r\n    \"lastName\": \"Nunes\",\r\n    \"preferredName\": \"Danny\",\r\n    \"role\": \"User\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localHost:8080/api/users/2",
+          "protocol": "http",
+          "host": [
+            "localHost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /api/user/{id} 2",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localHost:8080/api/users/2",
+          "protocol": "http",
+          "host": [
+            "localHost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "2"
+          ]
+        },
+        "description": "Get user with Id 1"
+      },
+      "response": []
+    }
+  ]
+}
