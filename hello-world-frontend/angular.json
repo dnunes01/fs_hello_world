@@ -64,7 +64,8 @@
               "buildTarget": "hello-world-frontend:build:production"
             },
             "development": {
-              "buildTarget": "hello-world-frontend:build:development"
+              "buildTarget": "hello-world-frontend:build:development",
+              "proxyConfig": "src/proxy.config.json"
             }
           },
           "defaultConfiguration": "development"

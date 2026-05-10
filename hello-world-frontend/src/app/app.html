@@ -1,9 +1,2 @@
 <h1>User Dashboard</h1>
-
-<ul>
-  @for (user of users(); track user.id) {
-  <li>
-    {{ user.firstName }} {{ user.lastName }} ({{ user.role }})
-  </li>
-  }
-</ul>
+<app-users />
