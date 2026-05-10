@@ -30,8 +30,8 @@ public class UserController {
     public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
         User saved = userService.saveUser(user);
         return ResponseEntity
-            .created(URI.create("/api/users/" + saved.getId()))
-            .body(saved);
+                .created(URI.create("/api/users/" + saved.getId()))
+                .body(saved);
     }
 
     // Get a user by ID
@@ -57,8 +57,8 @@ public class UserController {
 
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(
-        @PathVariable Long id,
-        @Valid @RequestBody User user) {
+            @PathVariable Long id,
+            @Valid @RequestBody User user) {
         return userService.getUserById(id)
                 .map(existing -> {
                     existing.setFirstName(user.getFirstName());
