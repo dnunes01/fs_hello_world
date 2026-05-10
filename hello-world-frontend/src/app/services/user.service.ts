@@ -5,13 +5,20 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class UserService {
+
+  private apiUrl = '/api/users';
+  
   constructor(private http: HttpClient) { }
 
   getUsers() {
-    return this.http.get<any[]>('http://localhost:8080/api/users');
+    return this.http.get<any[]>(this.apiUrl);
   }
 
   createUser(user: any) {
-    return this.http.post('api/users', user);
+    return this.http.post(this.apiUrl, user);
+  }
+
+  deleteUser(id: number) {
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 }
