@@ -1,0 +1,17 @@
+<h2>Edit User</h2>
+
+<form [formGroup]="form" (ngSubmit)="save()">
+
+  <label>First Name</label>
+  <input formControlName="firstName">
+
+  <label>Last Name</label>
+  <input formControlName="lastName">
+
+  <label>Role</label>
+  <input formControlName="role">
+
+  <button type="submit">Save</button>
+  <button type="button" (click)="dialogRef.close()">Cancel</button>
+
+</form>

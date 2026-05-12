@@ -2,6 +2,8 @@ import { Component, OnInit, signal } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { MatTableModule } from '@angular/material/table';
 import { CreateUser } from './create-user/create-user'
+import { MatDialog } from '@angular/material/dialog';
+import { EditUser } from './edit-user/edit-user';
 
 @Component({
   selector: 'app-users',
@@ -17,9 +19,13 @@ export class UsersComponent implements OnInit {
 
   users = signal<any[]>([]);
 
-  displayedColumns = ['firstName', 'lastName', 'role', 'delete'];
+  displayedColumns = ['firstName', 'lastName', 'role', 'edit', 'delete'];
 
-  constructor(private userService: UserService) { }
+
+  constructor(
+    private userService: UserService,
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe({
@@ -49,5 +55,20 @@ export class UsersComponent implements OnInit {
       error: (err) => console.error('Delete failed:', err)
     })
   }
+
+  openEditDialog(user: any) {
+    const dialogRef = this.dialog.open(EditUser, {
+      width: '400px',
+      data: user
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Updated user:', result);
+        // Step 5 will handle the PUT request
+      }
+    });
+  }
+
 
 }
