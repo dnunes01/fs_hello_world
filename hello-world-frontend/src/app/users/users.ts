@@ -64,8 +64,15 @@ export class UsersComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log('Updated user:', result);
-        // Step 5 will handle the PUT request
+        const updatedUser = { ...user, ...result };
+
+        this.userService.updateUser(user.id, updatedUser).subscribe({
+          next: ()=> {
+            console.log('User updated');
+            this.loadUsers();
+          },
+          error: err => console.error('Update failed:', err)
+        })
       }
     });
   }
