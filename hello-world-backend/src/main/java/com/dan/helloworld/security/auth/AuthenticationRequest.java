@@ -1,4 +1,4 @@
-package com.dan.helloworld.security.user.auth;
+package com.dan.helloworld.security.auth;
 
 public class AuthenticationRequest {
 
